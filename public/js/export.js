@@ -1,7 +1,12 @@
+const { BlobServiceClient } = require("@azure/storage-blob");
+var FileSaver = require('file-saver');
+
 const accountName = "nowherestorage";
 const containerName= "nowhere";
-const sasString= "sp=r&st=2022-03-31T07:37:59Z&se=2022-04-30T15:37:59Z&spr=https&sv=2020-08-04&sr=c&sig=02URJXimur%2FYoucCYVx4KRRrVGxySp5UKWncGogrLUI%3D";
+const sasString= "?sp=r&st=2022-03-31T07:37:59Z&se=2022-04-30T15:37:59Z&spr=https&sv=2020-08-04&sr=c&sig=02URJXimur%2FYoucCYVx4KRRrVGxySp5UKWncGogrLUI%3D";
 const holderfilename = "nowhere_owneroftoken.json";
+
+
 
 var vm = new Vue({
     el: "#app",
@@ -12,30 +17,48 @@ var vm = new Vue({
       
     },
     methods: {
-        downloadsvg: function(file) {
-              const a = document.createElement('a');
-              a.style.display = 'none';
-              a.target ="_blank"
-              a.href = file;
-              a.download = `svg_${new Date().getTime()}.svg`;
-              document.body.appendChild(a);
-              a.click();
-              setTimeout(() => {
-                document.body.removeChild(a);
-              }, 100);
+        downloadsvg: async function(blobfile) {
+          try{  
+            const blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.core.windows.net/nowhere${sasString}`);
+            const containerClient = blobServiceClient.getContainerClient('svg');
+            const blobClient = containerClient.getBlobClient(blobfile);
+            const downloadBlockBlobResponse = await blobClient.download(blobfile, 0, undefined);
+            const data = await downloadBlockBlobResponse.blobBody;
+            // Saves file to the user's downloads directory
+            FileSaver.saveAs(data, `svg_${new Date().getTime()}.svg`); // FileSaver.js}
+          }
+          catch(error){
+            console.log(error)
+          }
+        
         },
-        downloadpng: function(file) {
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            //let downloadLink = blobService.getUrl('png', file, sasString);
-            a.target ="_blank"
-            a.href = file;
-            a.download = `png_${new Date().getTime()}.png`;
-            document.body.appendChild(a);
-            a.click();
-            setTimeout(() => {
-              document.body.removeChild(a);
-            }, 100);
+        downloadpng: async function(blobfile) {
+         
+          try{  
+            const blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.core.windows.net/nowhere${sasString}`);
+            const containerClient = blobServiceClient.getContainerClient('pngfull');
+            const blobClient = containerClient.getBlobClient(blobfile);
+            const downloadBlockBlobResponse = await blobClient.download(blobfile, 0, undefined);
+            const data = await downloadBlockBlobResponse.blobBody;
+            // Saves file to the user's downloads directory
+            FileSaver.saveAs(data, `png_${new Date().getTime()}.png`); // FileSaver.js}
+          }
+          catch(error){
+            console.log(error)
+          }
+        
+         
+          // const a = document.createElement('a');
+            // a.style.display = 'none';
+            // //let downloadLink = blobService.getUrl('png', file, sasString);
+            // a.target ="_blank"
+            // a.href = file;
+            // a.download = `png_${new Date().getTime()}.png`;
+            // document.body.appendChild(a);
+            // a.click();
+            // setTimeout(() => {
+            //   document.body.removeChild(a);
+            // }, 100);
         },
         livehtml: function(tokenid){
           const a = document.createElement('a');
@@ -57,7 +80,7 @@ const getholderoftoken = () => {
 
     let tokenlists_meta = []
 
-    d3.text(`https://${accountName}.blob.core.windows.net/${containerName}/${holderfilename}?${sasString}`, function(data) {
+    d3.text(`https://${accountName}.blob.core.windows.net/${containerName}/${holderfilename}${sasString}`, function(data) {
         
         // console.log(`https://${accountName}.blob.core.windows.net/${containerName}/${holderfilename}?${sasString}`)
         // tokenlist_list = data['0x7ddD43C63aa73CDE4c5aa6b5De5D9681882D88f8']
@@ -68,9 +91,11 @@ const getholderoftoken = () => {
             
             tokenmeta = {}
             tokenmeta['name'] = `nowhere #${element}`
-            tokenmeta['cover'] = `https://${accountName}.blob.core.windows.net/${containerName}/svg/${element}.svg?${sasString}`
-            tokenmeta['svg_file'] = `https://${accountName}.blob.core.windows.net/${containerName}/svg/${element}.svg?${sasString}`
-            tokenmeta['png_file'] = `https://${accountName}.blob.core.windows.net/${containerName}/pngfull/${element}.png?${sasString}`
+            tokenmeta['cover'] = `https://${accountName}.blob.core.windows.net/${containerName}/svg/${element}.svg${sasString}`
+            tokenmeta['svg_file'] = `${element}.svg`
+            // tokenmeta['svg_file'] = `https://${accountName}.blob.core.windows.net/${containerName}/svg/${element}.svg${sasString}`
+            tokenmeta['png_file'] = `${element}.png`
+            // tokenmeta['png_file'] = `https://${accountName}.blob.core.windows.net/${containerName}/pngfull/${element}.png${sasString}`
             tokenmeta['tokenid'] = element;
             tokenlists_meta.push(tokenmeta);
             vm.cards = tokenlists_meta
