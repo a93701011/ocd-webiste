@@ -1,0 +1,31 @@
+
+table {
+   table-layout: auto;
+   width: 300px; 
+   font-family: 'OCR-B 10 BT';
+   font-size:13px;
+   }
+td:first-child, th:first-child {
+   position:sticky;
+   left:0; 
+   z-index:1;
+   background-color:white;
+   color: black;
+   }
+tr {
+    position:sticky;
+    top:0;
+    
+   }
+tr:first-child{
+    z-index:2;
+    background-color:rgb(255, 255, 255);
+    color: black;
+   }
+
+.alink{
+       color: black;
+       font-family: 'OCR-B 10 BT';
+       font-size:13px;
+   }
+

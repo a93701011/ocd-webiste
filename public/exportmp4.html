@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OCD</title>
+  <!-- <link rel="icon" type="image/svg" href="images/logo.svg"> -->
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/exportgifstyle.css">
+
+</head>
+
+<body>
+  <div class="bg">
+    
+    <div class="form">
+      <div class="select" >
+      <!-- <input type="radio" name="collection" value="hambody" v-model="picked"> <span class="text">hambody</span>
+      <input type="radio" name="collection" value="nobody" v-model="picked"> <span class="text" >nobody</span>  -->
+      <p> <span class="text">{{message}}</span></p>
+      <input class="input" type="text"
+      placeholder="token id"
+      v-model="tokenid">
+      <!-- <input class="input" type="text"
+        placeholder="animation uri"
+        v-model="animationuri"> -->
+        <!-- <input class="input" type="text"
+        placeholder="animationuri"
+        v-model="animationuri"> -->
+      <button class="button" id="submit">load</button>
+    </div>
+      <div class="recording">
+        <button class="button" id="screen">Start</button>
+        <!-- <button class="button" id="stop">end</button> -->
+        
+      </div>
+      <div class="dot" id="stop" style="display: none;"></div>
+    </div>
+
+
+ 
+    <iframe :src="animationuri" frameborder="0"></iframe>
+    <video id="video" autoplay style="display: none;"></video>
+   
+
+   
+  </div>
+  <!-- WEBPACK will inject the bundle.js here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script type="text/javascript" src="js/lib/gifshot.js"></script> -->
+  <script type="text/javascript" src="js/exportmp4.js"></script>
+</body>
+
+</html>

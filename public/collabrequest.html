@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OCD</title>
+    <!-- <link rel="icon" type="image/svg" href="images/logo.svg"> -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/indexstyle.css">
+</head>
+
+<body>
+    <div class="bg">
+
+        <div class="form">
+            <p class="info">Customize / Collab with Nobody</p>
+            <input class="input" type="text" placeholder="Who you are / Proj / Artist / Dev / Etc." v-model="name">
+            <input class="input" type="text" placeholder="Social Media" v-model="account">
+            <input class="input" type="text" placeholder="Website" v-model="website">
+            <textarea name="text" class="textarea-input" placeholder="Proposal / Commission /Other" v-model="proposal"></textarea>
+            <button class="button" id="submit">Submit</button>
+            <p class="subinfo">{{submitresult}}</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/collabrequest.js"></script>
+</body>
+
+</html>

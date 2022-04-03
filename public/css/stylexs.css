@@ -1,0 +1,104 @@
+.container-fuild {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.st1{font-family: 'OCR-B 10 BT';}
+.st2{font-size:16px;}
+
+
+p{
+    font-family: 'OCR-B 10 BT';
+    font-size:16px;}
+
+a{
+      font-family: 'OCR-B 10 BT';
+      font-size:16px;
+  }
+
+@media (max-width: 600px) {
+  
+  .container-fuild {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+}
+
+@font-face {
+  font-family: 'OCR-B 10 BT';
+  font-style: normal;
+  font-weight: 400;
+  src: local('OCR-B 10 BT'), 
+       url('/font/OCR-B 10.woff') format('woff'), 
+       url('/font/OCR-B 10.ttf') format("opentype");
+}
+
+
+input[type=numeric] {
+  width: 100%;
+  padding: 0px 15px;
+  margin: 0px 0px; 
+  box-sizing: border-box;
+  text-align: center;
+  border-style:solid;
+  position: relative;
+
+
+}
+
+.traits{
+  background-color: black;
+  color: #ffffff;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor:pointer;
+}  
+
+.traits-wh{
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: #000000;
+  border-style: solid;
+  cursor:pointer;
+}  
+
+.traitdetail{
+  border-bottom:1px #000 solid; padding-bottom:5px;
+  cursor:pointer;
+}
+
+
+.blackbg{
+  background-color: black;
+  color: #ffffff;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}  
+
+
+
+table {
+  border-collapse: collapse;
+  border: 2px black solid;
+  font: 12px sans-serif; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  border: 1px black solid;
+  padding: 5px;
+}
+  

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OCD</title>
+  <!-- <link rel="icon" type="image/svg" href="images/logo.svg"> -->
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/export.css">
+
+</head>
+
+<body>
+ 
+  <div id="app">
+    <div class="control">
+      <!-- <input type="text" class="input" v-model="address"></div> -->
+      <h3 class="floattext">
+        <div class="float"><button class="button" id="connect">connect wallet</button></div>
+       
+      </h3>
+     
+    </div>
+    <div class="nfts" >
+       <p class="subinfo">for high quality files, click into svg (animated loop) and/or png (static for prints), right click, save image as</p>
+       <p class="subinfo" v-html="shortaddress"></p>
+      <div class="card" v-for="card in cards">
+        <image class="cover":src="card.cover" alt="">
+         <div class="info">
+          <h3>{{card.name}}</h3>
+           <div class="action">
+            <!-- <div class="dlbtn left" v-on:click="say('svg')" >svg</div> -->
+            <button class="dlbtn left" v-on:click="downloadsvg(card.svg_file)">svg</button>
+            <button class="dlbtn left" v-on:click="downloadpng(card.png_file)">png</button>
+            <button class="dlbtn right" v-on:click="livehtml(card.tokenid)">live</button>
+             </div>
+           </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEBPACK will inject the bundle.js here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+  <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <!-- <script type="text/javascript" src="js/lib/gifshot.js"></script> -->
+  <script src="js/lib/d3.js"></script>
+  <script type="text/javascript" src="js/export.bundle.js"></script>
+</body>
+
+</html>

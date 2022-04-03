@@ -1,0 +1,60 @@
+
+/* @import url('http://fonts.cdnfonts.com/css/ocr-b-10-bt'); */
+
+
+@font-face {
+   font-family: 'OCR-B 10 BT';
+   font-style: normal;
+   font-weight: 400;
+   src: local('OCR-B 10 BT'), 
+        url('/font/OCR-B 10.woff') format('woff'), 
+        url('/font/OCR-B 10.ttf') format("opentype");
+ }
+ 
+ *{
+   font-family: 'OCR-B 10 BT';
+   /* border: solid 1px; */
+ }
+ html, body{
+   margin: 0;
+   background-color: #040508;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction:column;
+ }
+
+ .bg{
+   /* position: relative; */
+   width: 440px;
+ }
+ .info{
+   font-weight:500;
+   font-size: 20px;
+   color: white
+   
+ }
+
+
+
+ table {
+  
+   width: 300px; 
+   font-family: 'OCR-B 10 BT';
+   font-size:13px;
+ 
+   }
+   thead{
+
+
+   z-index:1;
+   background-color:white;
+   color: black;
+   padding: 2px 5px 2px 5px;
+   
+   }
+   tbody{
+ 
+      background-color:black;
+      color: #fff;
+   }

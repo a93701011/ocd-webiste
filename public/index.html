@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Nobody from Nowhere</title>
+  <!-- <link rel="icon" type="image/svg" href="images/logo.svg"> -->
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/indexstyle.css">
+</head>
+
+<body>
+
+  <div class="bg">
+    <div class="top">
+      <div class="float"><button class="button" id="connect">Connect Wallet</button></div>
+    </div>
+    <div class="wl">
+      <p v-html="connecterror"></p>
+      <p class="info">Mint Nowhere</p>
+    
+      <p class="subinfo" v-html="remainnumofnft"></p>
+      <p class="subinfo" v-html="shortaddress"></p>
+      <!-- <p class="subinfo" v-html="balanceshow"></p>  -->
+      <p class="subinfo" v-html="presalemintnum"></p>
+
+      <div class="enter">
+        <div class="left">
+          <input type="text" class="mintnum input" v-model.number="number" placeholder="# to be minted"></input>
+        </div>
+        <div class="right">
+          <p class="subinfo">Eth: {{price_eth}}</p>
+          <p class="subinfo">Total: {{totaleth}}</p>
+        </div>
+      </div>
+      <button class="button" id="presalemint" >mint</button>
+      <p class="subinfo" v-html="mintresult"></p>
+      <div v-show="isfomo" style="display:none">
+        <button class="button" id="fomosubmit">FOMO</button>
+        <p class="subinfo" v-html="fomosubmitresult"></p>
+      </div>
+      <!-- <p class="subinfog" id="subinfog">*Please note this page will allow Mint upon "Mint Open"</p> -->
+      <p class="subinfog" id="subinfog">*Summary</p>
+      <div class="doc" id="doc" style="display:none">
+        <p class="subinfo">OCD - the on-chain inhabitants of the meta world, collecting and moving data. hoarding.
+          obsessively. compulsively.</p>
+        <p class="subinfo">Nobody - Fictional spirits that OCD’s collect (we can gather that the Nobody is a being that
+          has insecurities, mood swings, hobbies, passions, and generally social creatures that live for whatever
+          “beliefs” they supposedly have. Since birth, they try to understand their own identities and abilities through
+          experience and "feeling". "Happiness" seems to be a recurring goal.)</p>
+        <p class="subinfo">Nowhere - different Wheres that the Nobody is stored once an OCD hoarder collects one.</p>
+      </div>
+    </div>
+
+    <img class="bgimage" src="./images/bot-traits-L-sh-3.gif" usemap="#image-map" alt="" />
+    <map name="image-map" id="image-map">
+      <area href="https://twitter.com/nobodyeth" target="_blank" id="twitter" shape=poly class="twitter"
+        coords="956,332,953,332,953,336,948,336,948,340,956,340,956,364,960,364,960,368,968,368,968,372,972,373,972,375,976,376,977,384,981,384,981,392,992,392,992,388,996,388,996,384,992,384,992,380,988,380,988,376,984,376,984,372,980,372,980,352,975,352,975,348,972,348,972,344,968,344,968,328,956,328" />
+      <area href="https://opensea.io/collection/nobodyeth" target="_blank" id="opensea" shape=poly class="opensea"
+        coords="635,272,640,272,640,316,644,316,644,324,648,324,648,336,652,336,652,344,656,344,656,348,660,348,660,352,664,352,664,357,668,357,668,361,681,361,681,364,717,364,717,368,720,368,720,364,784,364,784,360,825,360,825,356,844,356,844,360,848,360,848,356,860,356,860,352,872,352,872,348,880,348,880,344,884,344,884,335,888,335,888,315,892,315,892,204,888,204,888,195,884,195,884,188,880,188,880,184,876,184,876,180,868,180,868,176,864,176,864,171,852,172,852,168,836,168,836,172,832,172,832,168,800,168,800,172,736,172,736,176,692,176,692,180,668,180,668,184,656,184,656,188,649,188,648,192,645,192,644,196,640,196,640,203,635,203" />
+      <area href="https://opensea.io/collection/nobodynowhere" target="_blank" id="nowhereopensea" shape=poly class="nowhereopensea"
+        coords="1068,1612,1087,1222,419,1208,449,1602" />
+        <area href="https://discord.gg/AzNTawdH" target="_blank" id="discord" shape=poly class="discord"
+        coords="1158,1246,1115,1327,1199,1344,1193,1324,1389,1262,1364,1183,1175,1259" />
+        <area href="https://opensea.io/collection/thedudes" target="_blank" id="thedudes" shape=poly class="thedudes"
+        coords="620,548,757,548,764,756,626,760" />
+        <area href="https://opensea.io/collection/the-pixels-inc" target="_blank" id="pixelint" shape=poly class="pixelint"
+        coords="798,553,907,556,899,752,802,755" />
+        <area href="https://opensea.io/collection/cheyuwuxnobody" target="_blank" id="hambody" shape=poly class="hambody"
+        coords="444,796,1027,781,1019,1166,458,1189" />
+    </map>
+
+
+  </div>
+  <!-- WEBPACK will inject the bundle.js here -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+  <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="js/lib/jquery.rwdImageMaps.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
